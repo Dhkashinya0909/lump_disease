@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+#imagePreview img {
+    display: block;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: green;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.success-message span {
+    margin-left: 5px;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
