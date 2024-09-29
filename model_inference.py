@@ -53,7 +53,8 @@ def predict(img_rel_path):
         plt.xticks(index, classes, fontsize=8, rotation=20)
         plt.title('Probability for loaded image')
         file_path = f"./static/graphs/{img_rel_path.split('/')[-1]}"
-        plt.savefig(file_path)
+        plt.savefig(file_path)  # Saving the plot instead of showing it
+        plt.close()  # Close the plot to free resources
         return file_path
     file_path = plot_bar_x()
     return (maximum_probability,predicted_class,file_path)
