@@ -2,36 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lump Disease Detection</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./stylesheet.css">
     <link rel="shortcut icon" href="./upload_11918679.png" type="image/x-icon">
-    <title>Lump Disease Detection</title>
 </head>
 <body>
-    <div style="width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-        <div style="width: 100%; height: fit-content; padding: 1vh 0; background: #e5e5e5; display: flex; justify-content: center; align-items: center;">
-            <h1>Lump Disease Detection</h1>
+    <div class="content">
+        <div class="text-center mb-4">
+            <h1 class="display-4">Lump Disease Detection</h1>
         </div>
-        <div style="width: 100%; height: fit-content; display: flex; justify-content: center; align-items: center;">
-            <div id="imagePreview" style="margin-top: 20px;">
-                <!-- Display the uploaded image -->
-                {% if filename %}
-                <h2>Uploaded Image:</h2>
-                <img src="{{ url_for('display_image', filename=filename) }}" alt="Uploaded Image" style="max-width: 500px;">
-                <p> {{ maximum_probability }}</p>
-                <p> {{ predicted_class }}</p>
-                <img src="{{ url_for('graph_image', filename=filename) }}" alt="Uploaded Image" style="max-width: 500px;">
-                {% endif %}
-            </div>
+
+        <div id="imagePreview" class="text-center">
+            <!-- Show uploaded image and results -->
+            {% if filename %}
+                <h2 class="h4">Uploaded Image:</h2>
+                <img src="{{ url_for('display_image', filename=filename) }}" alt="Uploaded Image" class="img-fluid mb-3 img-preview">
+                <p><strong>Maximum Probability:</strong> {{ maximum_probability }}</p>
+                <p><strong>Predicted Class:</strong> {{ predicted_class }}</p>
+                <img src="{{ url_for('graph_image', filename=filename) }}" alt="Graph Image" class="img-fluid" style="max-width: 500px;">
+            {% endif %}
         </div>
-        <div style="width: 100%; height: 100%; justify-content: center; align-items: center; display: flex; flex-direction: column;">
-            <div>
-                <form method="POST" enctype="multipart/form-data">
-                    <label for="file">Select image:</label>
-                    <input type="file" id="file" name="file" required>
-                    <button type="submit">Upload</button>
-                </form>
-            </div>
+
+        <div style="width: 100%; justify-content: center; align-items: center; display: flex; flex-direction: column;">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file" class="h5">Select Image:</label>
+                    <input type="file" id="file" name="file" class="form-control-file" required>
+                </div>
+                <button type="submit" class="btn btn-custom btn-lg">Upload</button>
+            </form>
         </div>
     </div>
 </body>
