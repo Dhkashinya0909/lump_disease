@@ -1,0 +1,10 @@
+tensorflow-macos
+tensorflow-metal
+tensorflow-datasets
+pickle
+numpy
+matplotlib
+pandas
+scikit-learn
+opencv-python
+flask
